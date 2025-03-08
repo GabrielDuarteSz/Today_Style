@@ -1,0 +1,222 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+}
+.header i{
+    font-size: 30px;
+    margin-right: 10px;
+    gap: 50px;
+}
+.logo {
+    height: 80px;
+    width: auto;
+}
+
+/* Navegación */
+.nav-main {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 30;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.user-actions i {
+    display: flex;
+    gap:10px;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+.user-actions button i {
+    color: #13361C;
+    display: flex;
+
+}
+.user-actions button i:hover {
+    color: #e01010;
+}
+.user-actions button  {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    
+}
+
+.nav-list li a:hover {
+    color: #e01010;
+}
+
+/* Buscador */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px; /* Ajusta el ancho del campo de búsqueda */
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-bar button:hover {
+    color: #e01010;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #13361C;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+/*Estilos de imagen envio Gratis*/
+.hero img {
+    width: 80px;
+    height: 100px;
+}
+
+/* Categorías */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+.categories img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.categories img:hover {
+    transform: translateY(-5px); /* Levantar ligeramente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+.product-item img {
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;/* Asegura que la imagen cubra el espacio sin distorsionarse */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+/* Efecto hover para resaltar el producto */
+.product-item:hover {
+    transform: translateY(-5px); /* Levantar ligeramente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/*Estilo para la seleccion de productos*/
+.products {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+    gap: 20px; /* Espacio entre los productos */
+    padding: 20px; /* Espacio alrededor del contenedor */
+}
+
+/*Estilo para cada producto*/
+.product-item {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+    gap: 20px; /* Espacio entre los elementos */
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 auto;
+    box-sizing: border-box;
+}
+
+
+.product-item h2, .product-item p {
+    margin: 5px 0; /* Espacio entre el h2 y el p */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+.product-item button {
+    padding: 10px;/* Espacio interno del botón */
+    width: 100%; /* Ocupa todo el espacio del contenedor */
+    color: #ddd;/* Color del texto del botón */
+    border: none;/* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    background-color: #13361C;/* Color de fondo del botón */
+    align-self: stretch; /* Hace que el botón ocupe todo el ancho del contenedor */
+    margin-top: 10px; /* Espacio entre el botón y el contenido superior */
+}
+
+/* Footer */
+.footer {
+    background-color: #13361C;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.footer div {
+    max-width: 400px;
+    margin: 10px; /* Añade margen para separar los elementos en pantallas pequeñas */
+}
+
+/* Media Queries para Responsive Design */
+
+
+@media (max-width: 768px) {
+    .product-item {
+        flex: 1 1 100%; /* 1 columna en pantallas pequeñas */
+    }
+}
+@media (max-width: 768px) {
+    .user-actions button {
+        padding: 8px;
+    }
+
+    .user-actions button i {
+        font-size: 1em;
+    }
+}
