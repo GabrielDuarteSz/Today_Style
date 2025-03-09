@@ -172,8 +172,9 @@ body {
 
 
 .product-item h2, .product-item p {
-    margin: 5px 0; /* Espacio entre el h2 y el p */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin: auto; /* Espacio entre el h2 y el p */
+    width: auto; /* Ocupa todo el ancho del contenedor */
+    justify-content: center;
 }
 .product-item button {
     padding: 10px;/* Espacio interno del botón */
@@ -205,7 +206,6 @@ body {
 
 /* Media Queries para Responsive Design */
 
-
 @media (max-width: 768px) {
     .product-item {
         flex: 1 1 100%; /* 1 columna en pantallas pequeñas */
@@ -213,7 +213,7 @@ body {
 }
 @media (max-width: 768px) {
     .user-actions button {
-        padding: 8px;
+        padding: 9px;
     }
 
     .user-actions button i {
