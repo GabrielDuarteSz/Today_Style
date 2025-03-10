@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS `TodayStyle`.`Usuario` (
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
+  `nombresUsuario` VARCHAR(80) NOT NULL,
+  `apellidosUsuario` VARCHAR(80) NOT NULL, -- Corrige el nombre de la columna aquí
+  `correoUsuario` VARCHAR(100) NOT NULL,
+  `telefonoUsuario` INT NOT NULL,
+  `direccionUsuario` VARCHAR(80) NOT NULL,
+  `passwordUsuario` VARCHAR(200) NOT NULL,
+  `rolUsuario` VARCHAR(45) NOT NULL,
+  `loginUsuario` DATETIME NOT NULL,
+  PRIMARY KEY (`idUsuario`))
+ENGINE = InnoDB;

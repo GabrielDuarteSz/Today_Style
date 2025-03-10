@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TodayStile - Método de Pago</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside>
+            <header>
+                <h1 class="logo">
+                    <img src="img/logo.png" alt="Logo" class="logo-img">
+                    TodayStile
+                </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="boton-menu boton-volver" href="carrito.html">
+                            <i class="bi bi-arrow-left-circle"></i> Volver al carrito
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© Copyright 2024 TodayStile</p>
+            </footer>
+        </aside>
+        
+        <main>
+            <!-- Caja de formulario de método de pago -->
+            <div class="payment-box">
+                <h2>Método de Pago</h2>
+                <form action="#">
+                    <!-- Selección de método de pago -->
+                    <div class="input-container">
+                        <label for="payment-method">Selecciona un método de pago:</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="card">Tarjeta de Crédito</option>
+                            <option value="transfer">Transferencia (Nequi, Daviplata)</option>
+                            <option value="cash">Pago Contra Entrega</option>
+                        </select>
+                    </div>
+
+                    <!-- Formulario para tarjeta de crédito -->
+                    <div id="card-form" class="payment-method-form">
+                        <div class="input-container">
+                            <label for="card-name">Nombre en la tarjeta:</label>
+                            <input type="text" id="card-name" name="card-name" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="card-number">Número de tarjeta:</label>
+                            <input type="text" id="card-number" name="card-number" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="card-expiry">Fecha de vencimiento:</label>
+                            <input type="month" id="card-expiry" name="card-expiry" required>
+                        </div>
+                    </div>
+
+                    <!-- Formulario para transferencia -->
+                    <div id="transfer-form" class="payment-method-form" style="display:none;">
+                        <div class="input-container">
+                            <label for="transfer-method">Selecciona tu método de transferencia:</label>
+                            <select id="transfer-method" name="transfer-method">
+                                <option value="nequi">Nequi</option>
+                                <option value="daviplata">Daviplata</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <label for="transfer-reference">Número de referencia:</label>
+                            <input type="text" id="transfer-reference" name="transfer-reference" required>
+                        </div>
+                    </div>
+
+                    <!-- Formulario para pago contra entrega -->
+                    <div id="cash-form" class="payment-method-form" style="display:none;">
+                        <p>Seleccionaste pago contra entrega. No se requiere más información.</p>
+                    </div>
+
+                    <button type="submit" class="submit-button">Pagar</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Incluir JS -->
+    <script src="js/main.js"></script>
+    <script src="js/pago.js"></script>
+</body>
+</html>
