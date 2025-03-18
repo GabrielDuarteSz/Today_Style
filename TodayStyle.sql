@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2025 a las 00:59:06
+-- Tiempo de generación: 18-03-2025 a las 03:01:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -106,21 +106,21 @@ CREATE TABLE `pedido` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `productos` (
   `idProducto` int(11) NOT NULL,
   `nombreProducto` varchar(45) NOT NULL,
   `precioProducto` varchar(45) NOT NULL,
-  `descripciónProducto` varchar(100) NOT NULL
+  `descripcionProducto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `producto` (`idProducto`, `nombreProducto`, `precioProducto`, `descripciónProducto`) VALUES
+INSERT INTO `productos` (`idProducto`, `nombreProducto`, `precioProducto`, `descripcionProducto`) VALUES
 (2001, 'Chaqueta Casual Negra', '120000', 'Chaqueta ligera, ideal para días frescos'),
 (2002, 'Jean Dama Azul Claro', '60000', 'Jean ajustado de corte alto para dama'),
 (2003, 'Gorra Deportiva Roja', '35000', 'Gorra cómoda y ajustable para actividades'),
@@ -165,23 +165,23 @@ INSERT INTO `producto` (`idProducto`, `nombreProducto`, `precioProducto`, `descr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reseña`
+-- Estructura de tabla para la tabla `resenia`
 --
 
-CREATE TABLE `reseña` (
-  `idReseña` int(11) NOT NULL,
+CREATE TABLE `resenia` (
+  `idResenia` int(11) NOT NULL,
   `calificacion` int(11) NOT NULL,
   `comentario` varchar(250) NOT NULL,
-  `fechaReseña` datetime NOT NULL,
+  `fechaResenia` datetime NOT NULL,
   `idUsuario` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Volcado de datos para la tabla `reseña`
+-- Volcado de datos para la tabla `resenia`
 --
 
-INSERT INTO `reseña` (`idReseña`, `calificacion`, `comentario`, `fechaReseña`, `idUsuario`, `idProducto`) VALUES
+INSERT INTO `resenia` (`idResenia`, `calificacion`, `comentario`, `fechaResenia`, `idUsuario`, `idProducto`) VALUES
 (41, 5, 'Producto excelente, muy útil', '2025-03-09 08:30:00', 10005, 2001),
 (42, 4, 'Buena calidad, entregado a tiempo', '2025-03-09 10:00:00', 10006, 2002),
 (43, 3, 'Producto promedio, esperaba más', '2025-03-08 22:20:00', 10007, 2003),
@@ -235,7 +235,7 @@ CREATE TABLE `usuario` (
   `apellidosUsuario` varchar(80) NOT NULL,
   `correoUsuario` varchar(100) NOT NULL,
   `telefonoUsuario` varchar(15) NOT NULL,
-  `direcciónUsuario` varchar(80) NOT NULL,
+  `direccionUsuario` varchar(80) NOT NULL,
   `passwordUsuario` varchar(200) NOT NULL,
   `rolUsuario` varchar(45) NOT NULL,
   `loginUsuario` datetime NOT NULL
@@ -245,7 +245,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nombresUsuario`, `apellidosUsuario`, `correoUsuario`, `telefonoUsuario`, `direcciónUsuario`, `passwordUsuario`, `rolUsuario`, `loginUsuario`) VALUES
+INSERT INTO `usuario` (`idUsuario`, `nombresUsuario`, `apellidosUsuario`, `correoUsuario`, `telefonoUsuario`, `direccionUsuario`, `passwordUsuario`, `rolUsuario`, `loginUsuario`) VALUES
 (10000, 'Cristian Andres', 'Alarcon Sogamoso', 'cristian_aalarcon@soy.sena.edu.co', '3102782961', 'Calle 51 # 12 - 49', 'PruebadeCarga2025', 'Administrador', '2025-03-05 22:39:12'),
 (10001, 'Sergio Stiven', 'Barrera', 'sergio_sbarrera@soy.sena.edu.co', '3132770815', 'Calle 51 # 12 - 49', 'PruebadeCarga2025', 'Administrador', '2025-03-05 22:47:08'),
 (10002, 'Carlos Daniel', 'Martinez', 'cdmartinez5608@soy.sena.edu.co', '3107223298', 'Calle 51 # 12 - 49', 'pruebadeCarga2025', 'Administrador', '2025-03-08 10:04:08'),
@@ -337,18 +337,18 @@ ALTER TABLE `pedido`
   ADD KEY `fk_idCarrito` (`idCarrito`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `productos`
 --
-ALTER TABLE `producto`
+ALTER TABLE `productos`
   ADD PRIMARY KEY (`idProducto`);
 
 --
--- Indices de la tabla `reseña`
+-- Indices de la tabla `resenia`
 --
-ALTER TABLE `reseña`
-  ADD PRIMARY KEY (`idReseña`),
-  ADD KEY `fk_idUsuario_Reseña` (`idUsuario`),
-  ADD KEY `fk_idProducto_Reseña` (`idProducto`);
+ALTER TABLE `resenia`
+  ADD PRIMARY KEY (`idResenia`),
+  ADD KEY `fk_idUsuario_Resenia` (`idUsuario`) USING BTREE,
+  ADD KEY `fk_idProducto_Resenia` (`idProducto`) USING BTREE;
 
 --
 -- Indices de la tabla `usuario`
@@ -373,10 +373,10 @@ ALTER TABLE `pedido`
   MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `reseña`
+-- AUTO_INCREMENT de la tabla `resenia`
 --
-ALTER TABLE `reseña`
-  MODIFY `idReseña` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+ALTER TABLE `resenia`
+  MODIFY `idResenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -405,7 +405,7 @@ ALTER TABLE `historial_usuario`
 -- Filtros para la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  ADD CONSTRAINT `idProducto` FOREIGN KEY (`idInventario`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `idProducto` FOREIGN KEY (`idInventario`) REFERENCES `productos` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `pagos`
@@ -421,10 +421,10 @@ ALTER TABLE `pedido`
   ADD CONSTRAINT `fk_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `reseña`
+-- Filtros para la tabla `resenia`
 --
-ALTER TABLE `reseña`
-  ADD CONSTRAINT `fk_idProducto_Reseña` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ALTER TABLE `resenia`
+  ADD CONSTRAINT `fk_idProducto_Reseña` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_idUsuario_Reseña` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
